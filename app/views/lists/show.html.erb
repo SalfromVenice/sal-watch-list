@@ -1,35 +1,38 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path @list.image.key, height: 300, crop: :fill%>');">
   <div class="container">
     <h1><%= @list.name %></h1>
-    <%= link_to raw('<i class="far fa-trash-alt"></i>'), list_path(@list), method: :delete, data: { confirm: "List with contents can not be removed.\nRemove #{@list.name}?" }, class: 'btn btn-outline-danger btn-sm m-3' %>
+    <%= link_to raw('<i class="far fa-trash-alt"></i>'), list_path(@list), method: :delete, data: { confirm: "Are you sure to remove #{@list.name}?" }, class: 'btn btn-outline-danger btn-sm m-3' %>
   </div>
 </div>
-
-
 <br>
-<div class="container bg-light d-flex">
-  <div class="row">
+<div class="container bg-light d-flex flex-wrap p-3 rounded">
     <% @list.bookmarks.each do |bm| %>
-      <div class='col-4'>
+      <div class='col-3'>
         <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= bm.movie.poster_url %>')">
           <div class="d-flex flex-column justify-content-between ml-2">
             <h4><%= bm.movie.title %></h4>
           <h5>rated: <%= bm.movie.rating %></h5>
-          <h5><%= bm.comment %></h5>
+          <h5 class="scroll"><%= bm.comment %></h5>
           </div>
             <%= link_to raw('<i class="far fa-trash-alt"></i>'), bookmark_path(bm), method: :delete, data: { confirm: "Remove #{bm.movie.title}?" }, class: 'btn btn-danger btn-sm' %>
         </div>
-        <p><%= bm.movie.overview %></p>
+        <p class="scroll card-p"><%= bm.movie.overview %></p>
       </div>
     <% end %>
-  </div>
-  <div class="col-3 bg-light">
-    <%= simple_form_for [@list, @bookmark] do |f| %>
-      <%= f.association :movie %>
-      <%= f.input :comment %>
-      <%= f.button :submit, '+ Add a bookmark', class: 'btn btn-primary btn-sm' %>
-    <% end %>
-  </div>
+    <div class="col-3">
+      <div class='btn btn-outline-primary btn-bookmark show'><%= icon('fas', 'plus') %></div>
+      <%#link_to icon('fas', 'video'), new_movie_path(passed_parameter: {list_id: params[:id]}), class: "btn btn-outline-primary btn-bookmark" %>
+    </div>
 </div>
 <br>
-<%= link_to '< Back', lists_path, class: "btn btn-outline-primary" %>
+<div class="bg d-none">
+  <div class="container bg-light col-6 popup">
+    <h2><%= icon('fab', 'sistrix') %> Search for a movie</h2>
+    <span class="x"><%= icon('fas', 'times-circle') %></span>
+      <%= simple_form_for :search, url: (new_movie_path), method: "GET", html: { class: 'form-inline' } do |f| %>
+        <%= f.input :title, label: icon('fas', 'video'), placeholder: "enter a title" %>
+        <%= f.hidden_field :list_id, value: @list.id %>
+        <%= f.submit 'search', disabled: 'disabled', class: "btn btn-primary dis"%>
+      <% end %>
+  </div>
+</div>

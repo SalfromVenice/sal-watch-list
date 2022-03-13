@@ -11,7 +11,12 @@
   </head>
 
   <body>
-    <%= render 'shared/flashes' %>
-    <%= yield %>
+    <div class="wrapper">
+      <div class="container">
+        <%= render 'shared/flashes' %>
+        <%= yield %>
+      </div>
+      <%= render 'shared/footer' unless current_page?(new_user_session_path) || current_page?(new_user_registration_path) %>
+    </div>
   </body>
 </html>

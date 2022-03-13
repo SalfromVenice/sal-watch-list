@@ -1,0 +1,10 @@
+<h1><%= icon('fab', 'sistrix') %> Search for a movie for <%= @list.name %></h1>
+<div class="container bg-light col-6">
+  <div>
+    <%= simple_form_for :search, method: "GET", html: { class: 'form-inline' } do |f| %>
+      <%= f.input :title, label: '', placeholder: "enter a title" %>
+      <%= f.hidden_field :list_id, value: @list.id %>
+      <%= f.submit 'search', disabled: 'disabled', class: "btn btn-primary dis"%>
+    <% end %>
+  </div>
+</div>

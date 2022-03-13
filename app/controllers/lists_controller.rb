@@ -1,13 +1,15 @@
 class ListsController < ApplicationController
   def index
     @user = current_user
-    @list = List.all
+    @lists = List.where(user_id: @user)
+    @list = List.new
   end
 
   def show
-    @list = List.find(param[:id])
+    @list = List.find(params[:id])
     @bookmarks = @list.bookmarks
     @bookmark = Bookmark.new
+    @movie = Movie.new
   end
 
   def new
@@ -19,7 +21,7 @@ class ListsController < ApplicationController
     @user = current_user
     @list = List.new(list_params)
     @list.user = @user
-    if list.save
+    if @list.save
       redirect_to list_path(@list)
     else
       render :new
@@ -27,9 +29,9 @@ class ListsController < ApplicationController
   end
 
   def destroy
-    @list = List.find(param[:id])
+    @list = List.find(params[:id])
     @list.destroy
-    redirect_to list_path
+    redirect_to lists_path
   end
 
   private

@@ -1,10 +1,18 @@
 <h1>Add a bookmark</h1>
-<div class="container  bg-light col-6">
+<div class="container bg-light col-6 p-4 rounded">
+  <div class='col-11 movie-card'>
+    <div class="card-category col-4" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= @movie.poster_url %>)"></div>
+    <div>
+      <h4 class="scroll h7 p-1"><%= @movie.title %></h4>
+      <p class="scroll card-p p-1"><%= @movie.overview %></p>
+    </div>
+    <button class="btn btn-light btn-movie"><%= icon('fas', 'check')  %></button>
+  </div>
   <%= simple_form_for [@list, @bookmark] do |f| %>
-    <%= f.association :movie %>
+    <%= f.hidden_field :movie_id, value: @movie.id %>
     <%= f.input :comment %>
     <%= f.button :submit, class: 'btn btn-primary btn-sm' %>
   <% end %>
 </div>
 <br>
-<%= link_to '< Back', lists_path, class: "btn btn-outline-primary" %>
+<%= link_to '< Back', :back, class: "btn btn-outline-primary" %>

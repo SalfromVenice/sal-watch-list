@@ -1,0 +1,19 @@
+<h1>Add a movie to <%= @list.name %></h1>
+<div class="container col-12 d-flex flex-wrap justify-content-center">
+<% if @movies.empty? %>
+  <p>No results found for "<%= params[:passed_parameter][:query] %>"</p>
+<% else %>
+  <% @movies.each do |m| %>
+    <div class='col-5 movie-card'>
+      <div class="card-category col-4" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= m['poster_url'] %>)"></div>
+      <div>
+        <h4 class="scroll h7 p-1"><%= m['title'] %></h4>
+        <p class="scroll card-p p-1"><%= m['overview'] %></p>
+      </div>
+      <%= link_to icon('fas', 'plus'), new_list_bookmark_path(list_id: @list.id, movie_id: m['id']), class: "btn btn-success btn-movie" %>
+    </div>
+  <% end %>
+<% end %>
+</div>
+<br>
+<%= link_to '< Back', :back, class: "btn btn-outline-primary" %>

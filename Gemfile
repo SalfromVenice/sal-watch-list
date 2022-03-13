@@ -55,3 +55,6 @@ gem "simple_form"
 gem 'devise'
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'cloudinary', '~> 1.16.0'
+gem 'open-uri'
+gem 'json'
+gem 'rest-client'
