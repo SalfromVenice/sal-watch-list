@@ -1,6 +1,6 @@
 class ListsController < ApplicationController
   def index
-    # @user = current_user
+    @user = current_user
     @list = List.all
   end
 
@@ -11,14 +11,14 @@ class ListsController < ApplicationController
   end
 
   def new
-    # @user = current_user
+    @user = current_user
     @list = List.new
   end
 
   def create
-    # @user = current_user
+    @user = current_user
     @list = List.new(list_params)
-    # @list.user = @user
+    @list.user = @user
     if list.save
       redirect_to list_path(@list)
     else
