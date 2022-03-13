@@ -1,0 +1,10 @@
+<h1>Add a bookmark</h1>
+<div class="container  bg-light col-6">
+  <%= simple_form_for [@list, @bookmark] do |f| %>
+    <%= f.association :movie %>
+    <%= f.input :comment %>
+    <%= f.button :submit, class: 'btn btn-primary btn-sm' %>
+  <% end %>
+</div>
+<br>
+<%= link_to '< Back', lists_path, class: "btn btn-outline-primary" %>

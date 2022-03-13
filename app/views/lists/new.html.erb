@@ -1,2 +1,10 @@
-<h1>Lists#new</h1>
-<p>Find me in app/views/lists/new.html.erb</p>
+<h1>Create a list</h1>
+<div class="container bg-light col-6">
+<%= simple_form_for @list do |f| %>
+  <%= f.input :name %>
+  <%= f.input :image, as: :file %>
+  <%= f.button :submit, class: 'btn btn-primary btn-sm'  %>
+<% end %>
+</div>
+<br>
+<%= link_to '< Back', lists_path, class: "btn btn-outline-primary" %>

@@ -1,2 +1,35 @@
-<h1>Lists#show</h1>
-<p>Find me in app/views/lists/show.html.erb</p>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path @list.image.key, height: 300, crop: :fill%>');">
+  <div class="container">
+    <h1><%= @list.name %></h1>
+    <%= link_to raw('<i class="far fa-trash-alt"></i>'), list_path(@list), method: :delete, data: { confirm: "List with contents can not be removed.\nRemove #{@list.name}?" }, class: 'btn btn-outline-danger btn-sm m-3' %>
+  </div>
+</div>
+
+
+<br>
+<div class="container bg-light d-flex">
+  <div class="row">
+    <% @list.bookmarks.each do |bm| %>
+      <div class='col-4'>
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= bm.movie.poster_url %>')">
+          <div class="d-flex flex-column justify-content-between ml-2">
+            <h4><%= bm.movie.title %></h4>
+          <h5>rated: <%= bm.movie.rating %></h5>
+          <h5><%= bm.comment %></h5>
+          </div>
+            <%= link_to raw('<i class="far fa-trash-alt"></i>'), bookmark_path(bm), method: :delete, data: { confirm: "Remove #{bm.movie.title}?" }, class: 'btn btn-danger btn-sm' %>
+        </div>
+        <p><%= bm.movie.overview %></p>
+      </div>
+    <% end %>
+  </div>
+  <div class="col-3 bg-light">
+    <%= simple_form_for [@list, @bookmark] do |f| %>
+      <%= f.association :movie %>
+      <%= f.input :comment %>
+      <%= f.button :submit, '+ Add a bookmark', class: 'btn btn-primary btn-sm' %>
+    <% end %>
+  </div>
+</div>
+<br>
+<%= link_to '< Back', lists_path, class: "btn btn-outline-primary" %>
