@@ -5,9 +5,9 @@
   </div>
 </div>
 <br>
-<div class="container bg-light d-flex flex-wrap p-3 rounded">
+<div class="container bg-light d-flex flex-wrap rounded">
     <% @list.bookmarks.each do |bm| %>
-      <div class='col-3'>
+      <div class='col-3 m-2'>
         <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= bm.movie.poster_url %>')">
           <div class="d-flex flex-column justify-content-between ml-2">
             <h4><%= bm.movie.title %></h4>
@@ -19,7 +19,7 @@
         <p class="scroll card-p"><%= bm.movie.overview %></p>
       </div>
     <% end %>
-    <div class="col-3">
+    <div class="col-3 m-2">
       <div class='btn btn-outline-primary btn-bookmark show'><%= icon('fas', 'plus') %></div>
       <%#link_to icon('fas', 'video'), new_movie_path(passed_parameter: {list_id: params[:id]}), class: "btn btn-outline-primary btn-bookmark" %>
     </div>
