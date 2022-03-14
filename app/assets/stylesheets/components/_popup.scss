@@ -8,14 +8,20 @@
   width: fit-content;
   margin: 20% 35%;
   position: fixed;
+
   .form-group {
     display: -webkit-inline-box;
   }
+
   .x {
     color: red;
     position: absolute;
     top: 8px;
     right: 8px;
+  }
+
+  button.btn {
+    border-radius: 0 4px 4px 0;
   }
 }
 .bg {
@@ -28,11 +34,12 @@
   left: 0;
 }
 
-#search_title {
+input#search_title {
   width: 86%;
   border-radius: 4px 0 0 4px ;
 }
 
-button.btn {
-  border-radius: 0 4px 4px 0;
+input#list_image {
+  width: 80%;
+  margin: 8px 0;
 }
