@@ -34,11 +34,13 @@
 
 .bm-p {
   height: 100px;
+  padding-top: 0.5rem;
+  text-align: left;
 }
 
 .bm-col {
   width: 23%;
-  margin: 0.5rem
+  margin: 0.5rem;
 }
 
 .movie-card {
@@ -59,6 +61,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    padding-left: 0.5rem;
 }
 
 @media (max-width: 539px) {
