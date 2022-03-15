@@ -5,7 +5,7 @@ const showIt = (target, form) => {
 };
 
 const initShow = () => {
-  const button = document.querySelector('.show');
+  const button = document.querySelector('#show');
   const form = document.querySelector('.bg');
   if (button) {
     showIt(button, form);
