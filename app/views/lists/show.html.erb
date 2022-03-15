@@ -7,7 +7,7 @@
 <br>
 <div class="container bg-light d-flex flex-wrap rounded">
     <% @list.bookmarks.each do |bm| %>
-      <div class='col-3 m-2'>
+      <div class='bm-col'>
         <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= bm.movie.poster_url %>')">
           <div class="d-flex flex-column justify-content-between ml-2">
             <h4><%= bm.movie.title %></h4>
@@ -16,10 +16,10 @@
           </div>
             <%= link_to raw('<i class="far fa-trash-alt"></i>'), bookmark_path(bm), method: :delete, data: { confirm: "Remove #{bm.movie.title}?" }, class: 'btn btn-danger btn-sm' %>
         </div>
-        <p class="scroll card-p"><%= bm.movie.overview %></p>
+        <p class="scroll bm-p"><%= bm.movie.overview %></p>
       </div>
     <% end %>
-    <div class="col-3 m-2">
+    <div class="bm-col">
       <div class='btn btn-outline-primary btn-bookmark' id='show'><%= icon('fas', 'plus') %></div>
     </div>
 </div>

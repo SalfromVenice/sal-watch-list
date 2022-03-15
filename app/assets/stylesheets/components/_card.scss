@@ -10,6 +10,8 @@
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   padding: 8px;
+  width: 23,5%;
+  text-align: left;
 
   h4 {
     overflow: scroll;
@@ -23,11 +25,20 @@
 }
 
 .scroll {
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 .card-p {
-   height: 100px;
+   height: 85%;
+}
+
+.bm-p {
+  height: 100px;
+}
+
+.bm-col {
+  width: 23%;
+  margin: 0.5rem
 }
 
 .movie-card {
@@ -36,8 +47,33 @@
   padding: 0;
   margin: 10px auto;
   border-radius: 5px;
+  text-align: left;
 
   .card-category {
     border-radius: 5px 0 0 5px;
   }
+}
+
+.description {
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+@media (max-width: 539px) {
+
+  .movie-card {
+    width: 100%;
+  }
+
+  .bm-col {
+    width: 100%;
+
+    .btn {
+      margin-bottom: 50px;
+    }
+
+  }
+
 }

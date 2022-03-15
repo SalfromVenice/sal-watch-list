@@ -47,3 +47,11 @@
   border-color: #dae0e5;
   box-shadow: none !important;
 }
+
+@media (max-width: 539px) {
+
+  .btn-list {
+    width: 100%
+  }
+
+}

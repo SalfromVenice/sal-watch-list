@@ -39,7 +39,32 @@ input#search_title {
   border-radius: 4px 0 0 4px ;
 }
 
+input#list_name {
+  width: 85%;
+  }
+
 input#list_image {
   width: 80%;
   margin: 8px 0;
+}
+
+@media (max-width: 539px) {
+
+  .popup {
+    width: 70%;
+    margin: 30% 15%;
+  }
+
+  input#list_name {
+  width: 85%;
+  }
+
+  input#list_image {
+  margin: 24px 0;
+}
+
+  .btn-sm {
+        padding: 0.6rem 1.5rem;
+  }
+
 }

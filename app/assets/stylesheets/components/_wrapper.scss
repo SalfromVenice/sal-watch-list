@@ -1,4 +1,20 @@
 .wrapper {
   height: 100vh;
 	position: relative;
+  padding: 8px 0;
+  text-align: center;
+}
+
+.bm-container {
+  width: 50%;
+  border-radius: 5px;
+  padding: 1.5rem;
+}
+
+@media (max-width: 539px) {
+
+  .bm-container {
+    width: 100%;
+  }
+
 }
