@@ -28,6 +28,17 @@ class ListsController < ApplicationController
     end
   end
 
+  def edit
+    @list = List.find(params[:id])
+  end
+
+  def update
+    @user = current_user
+    @list = List.find(params[:id])
+    @list.update(list_params)
+    redirect_to lists_path(@list)
+  end
+
   def destroy
     @list = List.find(params[:id])
     @list.destroy

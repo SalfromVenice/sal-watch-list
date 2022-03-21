@@ -12,10 +12,33 @@
   padding-top: 1.5rem;
 }
 
+a.little-card:hover {
+  color: white;
+}
+
+.fa-edit {
+      color: white;
+      position: relative;
+      right: 30px;
+      top: 60px;
+      opacity: 50%;
+    }
+
+.fa-edit:hover {
+  opacity: 1;
+}
+
 @media (max-width: 539px) {
 
   .little-card {
     width: 100%
   }
+
+  .fa-edit {
+      position: relative;
+      right: 30px;
+      top: 60px;
+      opacity: 80%;
+    }
 
 }
