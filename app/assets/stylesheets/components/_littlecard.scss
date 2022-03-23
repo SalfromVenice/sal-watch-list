@@ -1,4 +1,4 @@
-.little-card {
+.list-card {
   background-size: cover;
   background-position: center;
   height: 80px;
@@ -7,9 +7,24 @@
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  padding: 8px 24px;
   width: 23.5%;
+  display: flex;
+}
+
+.edit {
+  width: 0;
+}
+
+.link-card {
+  background-size: cover;
+  background-position: center;
+  color: white;
+  font-size: 18px;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
   padding-top: 1.5rem;
+  width: 100%;
 }
 
 a.little-card:hover {
@@ -20,7 +35,6 @@ a.little-card:hover {
       color: white;
       position: relative;
       right: 30px;
-      top: 60px;
       opacity: 50%;
     }
 
@@ -30,15 +44,8 @@ a.little-card:hover {
 
 @media (max-width: 539px) {
 
-  .little-card {
+  .list-card {
     width: 100%
   }
-
-  .fa-edit {
-      position: relative;
-      right: 30px;
-      top: 60px;
-      opacity: 80%;
-    }
 
 }

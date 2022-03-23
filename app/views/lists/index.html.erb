@@ -6,8 +6,10 @@
 <br>
 <div class="d-flex flex-wrap">
   <% @lists.each do |list| %>
-    <%= link_to list.name, list_path(list), class: "little-card m-2 text-decoration-none", style:"background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('#{cl_image_path list.image.key, height: 80, crop: :fill}')" %>
-    <%= link_to icon('fas', 'edit'), edit_list_path(list), class: 'edit' %>
+    <div class="list-card m-2">
+      <%= link_to list.name, list_path(list), class: "link-card text-decoration-none", style:"background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('#{cl_image_path list.image.key, height: 80, crop: :fill}')" %>
+      <%= link_to icon('fas', 'edit'), edit_list_path(list), class: 'edit' %>
+    </div>
   <% end %>
   <button class='btn btn-outline-primary btn-list m-2' id='show'><%= icon('fas', 'list') + ' Add a new list' %></button>
 </div>
