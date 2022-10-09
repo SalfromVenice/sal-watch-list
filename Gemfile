@@ -58,3 +58,5 @@ gem 'cloudinary', '~> 1.16.0'
 gem 'open-uri'
 gem 'json'
 gem 'rest-client'
+
+gem "tailwindcss-rails", "~> 2.0"

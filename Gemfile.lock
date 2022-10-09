@@ -224,6 +224,10 @@ GEM
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
     stringio (3.0.1)
+    tailwindcss-rails (2.0.14-arm64-darwin)
+      railties (>= 6.0.0)
+    tailwindcss-rails (2.0.14-x86_64-linux)
+      railties (>= 6.0.0)
     thor (1.2.1)
     tilt (2.0.10)
     time (0.2.0)
@@ -280,6 +284,7 @@ DEPENDENCIES
   sass-rails (>= 6)
   simple_form
   spring
+  tailwindcss-rails (~> 2.0)
   turbolinks (~> 5)
   tzinfo-data
   web-console (>= 4.1.0)
